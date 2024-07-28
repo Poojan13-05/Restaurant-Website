@@ -1,5 +1,5 @@
 const mongoose=require("mongoose")
-const passwordcheck=/^(?=.[0-9])(?=.[!@#$%^&*])/
+const passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])/;
 
 const UserSchema=mongoose.Schema({
     username:{
