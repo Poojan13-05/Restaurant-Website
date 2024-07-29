@@ -4,6 +4,7 @@ const mongoose = require("mongoose")
 const dotenv = require("dotenv")
 const authRoute = require("./routes/auth")
 const orderRoute = require("./routes/order")
+const menuitemRoute = require("./routes/menuitem")
 
 dotenv.config();
 mongoose.connect(process.env.MONGO_URL,{
@@ -21,6 +22,7 @@ mongoose.connect(process.env.MONGO_URL,{
 app.use(express.json());
 app.use("/api/auth", authRoute)
 app.use("/api/order", orderRoute)
+app.use("/api/menuitem", menuitemRoute)
 
 
 app.listen(8800,()=>{

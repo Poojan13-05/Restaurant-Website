@@ -14,9 +14,9 @@ router.post("/placeOrder",async(req,res)=>{
 
         let totalPrice=0;
         for(const item of items){
-            const menuItem = await MenuItem.findById(item.itemId);
+            const menuItem = await MenuItem.findById(item.itemid);
             if (!menuItem){
-                return res.status(404).json({ message:"Menu item not found:${item.itemId}"});
+                return res.status(404).json({ message:`Menu item not found:"${item.itemid}"`});
             }
             totalPrice+=menuItem.price*item.quantity
                 
@@ -36,7 +36,8 @@ router.post("/placeOrder",async(req,res)=>{
         res.status(201).json(savedOrder);
     }
     catch(err){
-        res.status(500).json({message:"Internal Server Error"})
+        res.status(500).json({ error: err.message });
+        console.log(err);
     }
 
 
