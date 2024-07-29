@@ -20,4 +20,14 @@ router.post("/additem", async (req,res)=>{
 
 })
 
+router.get("/", async (req, res) => {
+    try {
+        const menuitems = await MenuItem.find();
+        res.status(200).json(menuitems);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+
 module.exports = router;
