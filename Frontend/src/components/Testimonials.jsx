@@ -10,19 +10,19 @@ const Testimonial = () => {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
-        centerMode:true,
-        centrePadding:"107px"
+        centerMode: true,
+        centerPadding: "40px", // Adjust padding for centering
     };
 
     // Testimonials data
     const testimonials = [
         {
             name: "Jasmeen Kaur",
-            review: " Recently dined at Bella Vista Bistro, and I must say, it was an unforgettable experience! From the moment we walked in, the ambiance was warm and inviting, with soft lighting and tasteful decor that set the perfect mood for the evening.",
+            review: "Recently dined at Bella Vista Bistro, and I must say, it was an unforgettable experience! From the moment we walked in, the ambiance was warm and inviting, with soft lighting and tasteful decor that set the perfect mood for the evening.",
         },
         {
             name: "Poojan Prajapati",

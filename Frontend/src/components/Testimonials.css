@@ -1,6 +1,6 @@
 .testimonial_section {
     background-color: #f4f4f4;
-    padding: 50px 0;
+    padding: 50px 100px;
     text-align: center;
 }
 
@@ -11,10 +11,14 @@
 }
 
 .slick-list {
-    margin: 0 -10px; /* Adjust for the gap between the slides */
+    margin: 0 auto;
+    padding: 0 40px; /* Adjusted padding for centering */
 }
-.slick-list{
-    padding:0 1000px;
+
+.slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .testimonial_item {
@@ -22,21 +26,14 @@
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0 10px; /* Add gap between slides */
+    margin: 0px 0px; /* Space between the slides */
+    width: 300px; 
+    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 250px; /* Fixed width for square effect */
-    height: 250px; /* Fixed height for square effect */
-    /* overflow: hidden; */
-}
-
-.testimonial_item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    box-sizing: border-box;
 }
 
 .testimonial_item p {
