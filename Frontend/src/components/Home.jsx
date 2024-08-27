@@ -3,6 +3,8 @@ import "./Home.css";
 import Navbar from "./Navbar";
 import home_image from "../assets/home_image.png"
 import Footer from "./Footer";
+import Menu from "./Menu";
+import Testimonial from "./Testimonials";
 
 const Home = () => {
   return (
@@ -24,7 +26,10 @@ const Home = () => {
         <div className="intro_right">
             <img src={home_image}></img>
         </div>
+
       </div>
+      <Menu></Menu>
+      <Testimonial></Testimonial>
       <Footer/>
     </div>
   );
