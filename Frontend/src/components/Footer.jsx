@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import { Link } from 'react-router-dom';
 import phone from "../assets/phone.png";
 import mail from "../assets/mail.png";
 import whatsapp from "../assets/whatsapp.png";
@@ -29,13 +30,13 @@ const Footer = () => {
         </div>
         <div className="footer_right">
           <div className="footer_links">
-            <a href="#">Home</a>
-            <a href="#">Order</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <Link to="/" className="links">Home</Link>
+            <Link to="/order" className="links">Order</Link>
+            <Link to="/about" className="links">About</Link>
+            <Link to="/contact" className="links">Contact</Link>
           </div>
           <div className="social_links">
-            <a href="#">
+            <a href="https://in.search.yahoo.com/search?fr=mcafee&type=E210IN714G0&p=whatsapp">
               <img src={whatsapp} />
             </a>
             <a href="#">

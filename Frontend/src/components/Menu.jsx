@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import omlet from "../assets/omlet.png"
-import sandwich from "../assets/sandwich.png"
+import sandwich from "../assets/sandwich1.png"
 import pancakes from "../assets/pancakes.png"
 import avocado from "../assets/avocado.png"
 import salad from "../assets/salad.png"
@@ -11,6 +11,12 @@ import pizza from "../assets/Pizza.png"
 import pasta from "../assets/pasta.png"
 import spaghetti from "../assets/spaghetti.png"
 import wrap from "../assets/wrap.png"
+import smoothie from "../assets/smoothie.png"
+import hotcoffee from "../assets/hot coffee.png"
+import milkshake from "../assets/milkshake.png"
+import mojito from "../assets/mojito.png"
+import juice from "../assets/juice.png"
+import coldcoffee from "../assets/cold coffee.png"
 
 import "./Menu.css"
 const Menu = () => {
@@ -20,7 +26,7 @@ const Menu = () => {
             { name: "Classic Omlet", img: omlet },
             { name: "Sandwich", img: sandwich },
             { name: "Pancakes", img: pancakes },
-            { name: "Avocado", img: avocado },
+            { name: "Avocado Toast", img: avocado },
             { name: "Salad", img: salad },
             { name: "Soup", img: soup }
 
@@ -31,7 +37,16 @@ const Menu = () => {
             { name: "Pizza", img: pizza },
             { name: "Pasta", img: pasta },
             { name: "Spaghetti", img:spaghetti },
-            { name: "Wrap", img: wrap }
+            { name: "Wraps", img: wrap }
+
+        ],
+        Drinks: [
+            { name: "Smoothies", img: smoothie },
+            { name: "Hot Coffee", img: hotcoffee },
+            { name: "Milkshakes", img: milkshake },
+            { name: "Mojitos", img: mojito },
+            { name: "Fruit jucies", img:juice },
+            { name: "Cold Coffee", img: coldcoffee }
 
         ]
     }

@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import "./Navbar.css";
+import './Navbar.css';
+import TableBookingForm from './TableBookingForm';
 
 const Navbar = () => {
+  const [showForm, setShowForm] = useState(false);
+
+  const handleToggleForm = () => {
+    setShowForm(!showForm);
+  };
+
+  const closeForm = () => {
+    setShowForm(false);
+  };
+
   return (
     <div className="nav_main">
       <div className="left_lg">
@@ -18,8 +29,18 @@ const Navbar = () => {
       </div>
 
       <div className="right_btn">
-        <button>BOOK A TABLE</button>
+        <button onClick={handleToggleForm}>BOOK A TABLE</button>
       </div>
+
+      {/* Conditionally render the overlay and form */}
+      {showForm && (
+        <div className="overlay" onClick={closeForm}>
+          <div className="popup-form" onClick={(e) => e.stopPropagation()}>
+            <TableBookingForm />
+            <button onClick={closeForm} className="close-button">Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
