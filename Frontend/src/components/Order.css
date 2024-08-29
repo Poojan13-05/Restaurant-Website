@@ -1,66 +1,76 @@
 .order-container {
-    display: flex;
-    padding: 20px;
-  }
-  
-  .left-section {
-    width: 25%;
-    padding: 20px;
-  }
-  
-  .right-section {
-    width: 75%;
-    padding: 20px;
-  }
-  
-  .category-card {
-    margin-bottom: 20px;
-  }
-  
-  .category-card a {
-    display: block;
-    margin: 10px 0;
-    text-decoration: none;
-    color: #007BFF;
-    cursor: pointer;
-  }
-  
-  .cart-card {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-  }
-  
-  .menu-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .menu-card img {
-    width: 100%;
-    border-radius: 8px;
-  }
-  
-  .menu-card button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .menu-card button:hover {
-    background-color: #0056b3;
-  }
+  display: flex;
+  padding: 20px;
+}
+
+.left-section {
+  width: 25%;
+  padding: 20px;
+}
+
+.right-section {
+  width: 75%;
+  padding: 20px;
+}
+
+.category-card {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-card a {
+  display: block;
+  margin: 0 0;
+  padding: 3%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cart-card {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.menu-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 200px;
+  /* text-align: center; */
+}
+
+.menu-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.menu-card button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #F08733;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.item_image {
+  height: 150px;
+  width: 150px;
+}
+
+.order_bg {
+  margin-top: 40px;
+}
