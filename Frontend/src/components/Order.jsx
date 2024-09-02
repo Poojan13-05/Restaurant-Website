@@ -1,8 +1,8 @@
-import React,{useState}from 'react'
+import React, { useState } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import order_img from "../assets/order_img.png"
-import './Order.css'; 
+import './Order.css'
 import omlet from "../assets/omlet.png"
 import pancakes from "../assets/pancakes.png"
 import pizza from "../assets/Pizza.png"
@@ -12,43 +12,64 @@ import wrap from "../assets/wrap.png"
 import smoothie from "../assets/smoothie.png"
 import hotcoffee from "../assets/hot coffee.png"
 
-
 const Order = () => {
     const [cart, setCart] = useState([]);
 
     const menuItems = {
         breakfast: [
-            { id: 1, title: 'Pancakes', price: 'Rs.199', description: 'Fluffy pancakes with syrup', image: pancakes },
-            { id: 2, title: 'Classic Omelette', price: 'Rs.199', description: 'Cheese and ham omelette', image: omlet },
+            { id: 1, title: 'Pancakes', price: 199, description: 'Fluffy pancakes with syrup', image: pancakes },
+            { id: 2, title: 'Classic Omelette', price: 199, description: 'Cheese and ham omelette', image: omlet },
         ],
         lunch: [
-            { id: 3, title: 'Pizza', description: 'Cheesy pizza with olive and vegetables', image: pizza },
-            { id: 3, title: 'Pasta', description: 'Italian dish featuring tender pasta', image: pasta },
+            { id: 3, title: 'Pizza', price: 299, description: 'Cheesy pizza with olive and vegetables', image: pizza },
+            { id: 4, title: 'Pasta', price: 249, description: 'Italian dish featuring tender pasta', image: pasta },
         ],
         dinner: [
-            { id: 3, title: 'Spaghetti', description: 'Tossed in creamy sauce', image: pizza },
-            { id: 3, title: 'Wrap', description: 'Combination of veggies', image: pasta },
+            { id: 5, title: 'Spaghetti', price: 279, description: 'Tossed in creamy sauce', image: spaghetti },
+            { id: 6, title: 'Wrap', price: 199, description: 'Combination of veggies', image: wrap },
         ],
         drinks: [
-            { id: 3, title: 'Smoothie', description: 'Strawberry smoothie', image: pizza },
-            { id: 3, title: 'Hot Coffee', description: 'Freshly brewed coffee', image: pasta },
+            { id: 7, title: 'Smoothie', price: 149, description: 'Strawberry smoothie', image: smoothie },
+            { id: 8, title: 'Hot Coffee', price: 99, description: 'Freshly brewed coffee', image: hotcoffee },
         ],
     };
 
     const addToCart = (item) => {
-        setCart([...cart, item]);
+        const existingItem = cart.find(cartItem => cartItem.id === item.id);
+        if (existingItem) {
+            setCart(cart.map(cartItem => 
+                cartItem.id === item.id 
+                    ? { ...cartItem, quantity: cartItem.quantity + 1 } 
+                    : cartItem
+            ));
+        } else {
+            setCart([...cart, { ...item, quantity: 1 }]);
+        }
     };
 
+    const removeFromCart = (itemId) => {
+        setCart(cart.filter(item => item.id !== itemId));
+    };
+
+    const updateQuantity = (itemId, change) => {
+        setCart(cart.map(item => {
+            if (item.id === itemId) {
+                const newQuantity = item.quantity + change;
+                return newQuantity > 0 ? { ...item, quantity: newQuantity } : null;
+            }
+            return item;
+        }).filter(Boolean));
+    };
 
     return (
         <div>
-            <Navbar></Navbar>
-            <img className="order_bg" src={order_img}></img>
+            <Navbar />
+            <img className="order_bg" src={order_img} alt="Order background" />
             <div className="order-container">
                 {/* Left Section */}
                 <div className="left-section">
                     <div className="category-card">
-                    <h2>Categories</h2>
+                        <h2>Categories</h2>
                         <a href="#breakfast">Breakfast</a>
                         <a href="#lunch">Lunch</a>
                         <a href="#dinner">Dinner</a>
@@ -60,25 +81,31 @@ const Order = () => {
                             <p>No items added yet.</p>
                         ) : (
                             <ul>
-                                {cart.map((item, index) => (
-                                    <li key={index}>{item.title}</li>
+                                {cart.map((item) => (
+                                    <li key={item.id}>
+                                        {item.title} -{item.quantity}
+                                        <button onClick={() => updateQuantity(item.id, -1)}>-</button>
+                                        <button onClick={() => updateQuantity(item.id, 1)}>+</button>
+                                        <button onClick={() => removeFromCart(item.id)}>Remove</button>
+                                    </li>
                                 ))}
                             </ul>
                         )}
+                        <p>Total: Rs.{cart.reduce((total, item) => total + item.price * item.quantity, 0)}</p>
                     </div>
                 </div>
 
                 {/* Right Section */}
                 <div className="right-section">
-                    {Object.keys(menuItems).map((category) => (
+                    {Object.entries(menuItems).map(([category, items]) => (
                         <div key={category} id={category}>
                             <h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
                             <div className="card-grid">
-                                {menuItems[category].map((item) => (
+                                {items.map((item) => (
                                     <div key={item.id} className="menu-card">
                                         <img className="item_image" src={item.image} alt={item.title} />
                                         <h3>{item.title}</h3>
-                                        <p>{item.price}</p>
+                                        <p>Rs.{item.price}</p>
                                         <p>{item.description}</p>
                                         <button onClick={() => addToCart(item)}>Add</button>
                                     </div>
@@ -88,11 +115,8 @@ const Order = () => {
                     ))}
                 </div>
             </div>
-
-
-            <Footer></Footer>
+            <Footer />
         </div>
-
     )
 }
 
