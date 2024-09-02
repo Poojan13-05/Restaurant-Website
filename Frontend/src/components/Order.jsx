@@ -81,15 +81,18 @@ const Order = () => {
                             <p>No items added yet.</p>
                         ) : (
                             <ul>
-                                {cart.map((item) => (
-                                    <li key={item.id}>
-                                        {item.title} -{item.quantity}
-                                        <button onClick={() => updateQuantity(item.id, -1)}>-</button>
-                                        <button onClick={() => updateQuantity(item.id, 1)}>+</button>
-                                        <button onClick={() => removeFromCart(item.id)}>Remove</button>
-                                    </li>
-                                ))}
-                            </ul>
+  {cart.map((item) => (
+    <li key={item.id}>
+      {item.title} - {item.quantity}
+      <div className="button-container">
+        <button className="icon-btn" onClick={() => updateQuantity(item.id, -1)}>−</button>
+        <button className="icon-btn" onClick={() => updateQuantity(item.id, 1)}>+</button>
+        <button className="remove-btn" onClick={() => removeFromCart(item.id)}>✖</button>
+      </div>
+    </li>
+  ))}
+</ul>
+
                         )}
                         <p>Total: Rs.{cart.reduce((total, item) => total + item.price * item.quantity, 0)}</p>
                     </div>
