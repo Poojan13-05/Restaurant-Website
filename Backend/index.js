@@ -6,6 +6,7 @@ const authRoute = require("./routes/auth")
 const orderRoute = require("./routes/order")
 const menuitemRoute = require("./routes/menuitem")
 const reservationRoute = require("./routes/reservation")
+const cors=require('cors');
 
 dotenv.config();
 mongoose.connect(process.env.MONGO_URL,{
@@ -20,11 +21,13 @@ mongoose.connect(process.env.MONGO_URL,{
 })
 
 //middlewares
+app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoute)
 app.use("/api/order", orderRoute)
 app.use("/api/menuitem", menuitemRoute)
 app.use("/api/reservation", reservationRoute)
+
 
 
 app.listen(8800,()=>{
