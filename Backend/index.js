@@ -21,7 +21,8 @@ mongoose.connect(process.env.MONGO_URL,{
 })
 const corsOptions={
     origin:'https://restaurant-website-ten-ecru.vercel.app',
-    credentials:true
+    credentials:true,
+    methods:['GET','POST']
 };
 
 //middlewares
