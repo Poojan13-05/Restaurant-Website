@@ -7,6 +7,7 @@ const TableBookingForm = () => {
   const [persons, setPersons] = useState('4');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  // const [success, setSuccess] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [userData, setUserData] = useState(null);
@@ -59,7 +60,7 @@ const TableBookingForm = () => {
     <div>
       <h1 className='pop_heading'>Book A Table</h1>
       {error && <p className="error-message">{error}</p>}
-      {success && <p className="success-message">{success}</p>}
+      {/* {success && <p className="success-message">{success}</p>} */}
       <form onSubmit={handleSubmit} className="table-booking-form">
         <div className="form-row">
           <div className="form-group">

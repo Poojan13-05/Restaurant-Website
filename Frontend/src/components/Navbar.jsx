@@ -29,7 +29,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('userdata'); // Remove user data from localStorage
     setIsAuthenticated(false); // Set user as unauthenticated
-    navigate('/login'); // Redirect to login page
+    navigate('/'); // Redirect to login page
   };
 
   return (
@@ -44,7 +44,7 @@ const Navbar = () => {
         <Link to="/about" className="links">About</Link>
         <Link to="/contact" className="links">Contact</Link>
         {isAuthenticated ? (
-          <Link to="#" onClick={handleLogout} className="links">Logout</Link>
+          <Link to="/" onClick={handleLogout} className="links">Logout</Link>
         ) : (
           <Link to="/login" className="links">Login</Link>
         )}
