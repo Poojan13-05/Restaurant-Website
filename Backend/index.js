@@ -20,7 +20,7 @@ mongoose.connect(process.env.MONGO_URL,{
     console.error("error connecting to mongoDB ",err)
 })
 const corsOptions={
-    origin:'https://restaurant-website-ten-ecru.vercel.app/',
+    origin:'https://restaurant-website-ten-ecru.vercel.app',
     credentials:true
 };
 
