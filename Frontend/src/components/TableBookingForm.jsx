@@ -33,7 +33,7 @@ const TableBookingForm = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8800/api/reservation/create', {
+      const response = await axios.post('${process.env.REACT_APP_BACKEND_URL}/api/reservation/create', {
         userId: userData._id, // Send userId along with reservation data
         name: userData.username,
         contact: userData.email,

@@ -19,9 +19,13 @@ mongoose.connect(process.env.MONGO_URL,{
 .catch((err)=>{
     console.error("error connecting to mongoDB ",err)
 })
+const corsOptions={
+    origin:'https://restaurant-website-ten-ecru.vercel.app/',
+    credentials:true
+};
 
 //middlewares
-app.use(cors({ origin: 'https://restaurant-website-ten-ecru.vercel.app'}));
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/api/auth", authRoute)
 app.use("/api/order", orderRoute)
