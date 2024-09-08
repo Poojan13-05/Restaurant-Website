@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGO_URL,{
 })
 
 //middlewares
-app.use(cors());
+app.use(cors({ origin: 'restaurant-website-4bum-d51nwq2ox-poojan-prajapatis-projects.vercel.app'}));
 app.use(express.json());
 app.use("/api/auth", authRoute)
 app.use("/api/order", orderRoute)
