@@ -6,7 +6,7 @@ const authRoute = require("./routes/auth")
 const orderRoute = require("./routes/order")
 const menuitemRoute = require("./routes/menuitem")
 const reservationRoute = require("./routes/reservation")
-const cors = require("cors")
+const cors=require('cors');
 
 dotenv.config();
 mongoose.connect(process.env.MONGO_URL,{
@@ -19,14 +19,9 @@ mongoose.connect(process.env.MONGO_URL,{
 .catch((err)=>{
     console.error("error connecting to mongoDB ",err)
 })
-const corsOptions={
-    origin:'https://restaurant-website-ten-ecru.vercel.app',
-    credentials:true,
-    methods:['GET','POST']
-};
 
 //middlewares
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoute)
 app.use("/api/order", orderRoute)

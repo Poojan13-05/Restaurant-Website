@@ -7,10 +7,7 @@ import Order from "./components/Order";
 import axios from "axios";
 
 
-
 const App = () => {
-  
- 
   return (
 
     <Router>
@@ -24,7 +21,5 @@ const App = () => {
     </Router>
   );
 };
-
-
 
 export default App;
