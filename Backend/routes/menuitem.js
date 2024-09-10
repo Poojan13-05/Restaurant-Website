@@ -6,7 +6,8 @@ router.post("/additem", async (req,res)=>{
         const newItem = new MenuItem({
             name:req.body.name,
             description:req.body.description,
-            price:req.body.price
+            price:req.body.price,
+            image:req.body.image
         })
 
         const item = await newItem.save();
