@@ -2,18 +2,26 @@
     "version": 2,
     "builds": [
         {
-            "src": "./index.js",
+            "src": "routes/*.js",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
-            "src": "/api/(.*)",
-            "dest": "/api/$1"
+            "src": "/api/auth(.*)",
+            "dest": "/routes/auth.js"
         },
         {
-            "src": "/(.*)",
-            "dest": "/public/$1"
+            "src": "/api/order(.*)",
+            "dest": "/routes/order.js"
+        },
+        {
+            "src": "/api/menuitem(.*)",
+            "dest": "/routes/menuitem.js"
+        },
+        {
+            "src": "/api/reservation(.*)",
+            "dest": "/routes/reservation.js"
         }
     ]
 }
