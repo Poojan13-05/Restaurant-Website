@@ -118,3 +118,13 @@
 .order_bg {
   margin-top: 40px;
 }
+
+.order_button{
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #F08733;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

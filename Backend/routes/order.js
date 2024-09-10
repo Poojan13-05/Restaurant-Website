@@ -1,60 +1,48 @@
-const router = require("express").Router();
-const User = require("../models/Users");
-const Order = require("../models/Order");
-const MenuItem = require("../models/MenuItem");
+const router = require('express').Router();
+const User = require('../models/Users');
+const Order = require('../models/Order');
 
-router.post("/placeOrder",async(req,res)=>{
-    const{userId,name,address,phone,items}=req.body;
+// Route to place an order
+router.post('/placeOrder', async (req, res) => {
+    const { userId, items } = req.body;
 
-    try{
+    if (!userId || !items || !items.length) {
+        return res.status(400).json({ message: 'User ID and items are required' });
+    }
+
+    // Validate items
+    for (const item of items) {
+        if (!item.title || !item.price || !item.quantity) {
+            return res.status(400).json({ message: 'Each item must have title, price, and quantity' });
+        }
+    }
+
+    try {
         const user = await User.findById(userId);
-        if(!user){
-            return res.status(404).json({message:"User not found"});
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
         }
 
-        let totalPrice=0;
-        for(const item of items){
-            const menuItem = await MenuItem.findById(item.itemid);
-            if (!menuItem){
-                return res.status(404).json({ message:`Menu item not found:"${item.itemid}"`});
-            }
-            totalPrice+=menuItem.price*item.quantity
-                
-        }
-        const newOrder= new Order({
+        const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0);
+
+        const newOrder = new Order({
             items,
             totalPrice,
-            customerDetails:{
-                userId,
-                name,
-                address,
-                phone
-
+            customerDetails: {
+                email: user.email,
+                username: user.username
             }
         });
+
         const savedOrder = await newOrder.save();
         res.status(201).json(savedOrder);
-    }
-    catch(err){
-        res.status(500).json({ error: err.message });
-        console.log(err);
-    }
-
-
-});
-
-router.get("/", async (req, res) => {
-    try {
-        const orders = await Order.find({'customerDetails.userId':req.body.userId});
-        res.status(200).json(orders);
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        console.error('Error in /placeOrder:', err.message, err.stack);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
-module.exports=router;
 
 
 
-
-
+module.exports = router;
