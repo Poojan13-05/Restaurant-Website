@@ -20,7 +20,7 @@ const Login = () => {
     };
     const handleLogin = async(e)=>{
         e.preventDefault()
-        try {const response=await axios.post('http://localhost:8800/api/auth/login',{
+        try {const response=await axios.post('https://restaurant-website-liaz-poojan-prajapatis-projects.vercel.app/api/auth/login',{
             email,
             password
         });
@@ -41,7 +41,7 @@ const Login = () => {
     const handleRegister=async(e)=>{
 
         e.preventDefault()
-        try {const response=await axios.post('http://localhost:8800/api/auth/register',{
+        try {const response=await axios.post('https://restaurant-website-liaz-poojan-prajapatis-projects.vercel.app/api/auth/register',{
             username,
             email,
             password
