@@ -1,16 +1,16 @@
 {
     "functions": {
       "api/auth.js": {
-        "memory": 1024
+        "runtime": "nodejs14.x"
       },
       "api/menuitem.js": {
-        "memory": 1024
+        "runtime": "nodejs14.x"
       },
       "api/order.js": {
-        "memory": 1024
+        "runtime": "nodejs14.x"
       },
       "api/reservation.js": {
-        "memory": 1024
+        "runtime": "nodejs14.x"
       }
     },
     "routes": [
