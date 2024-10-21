@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Contact from "./components/Contact";
 import Order from "./components/Order";
 import axios from "axios";
+import About from "./components/About";
 
 
 const App = () => {
@@ -15,7 +16,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/order" element={<Order></Order>} />
-        {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/about" element={<About/>} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </Router>

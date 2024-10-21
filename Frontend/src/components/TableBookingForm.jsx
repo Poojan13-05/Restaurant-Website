@@ -33,7 +33,7 @@ const TableBookingForm = () => {
     }
 
     try {
-      const response = await axios.post('https://restaurant-website-liaz-poojan-prajapatis-projects.vercel.app/api/reservation/create', {
+      const response = await axios.post('http://localhost:8800/api/reservation/create', {
         userId: userData._id, // Send userId along with reservation data
         name: userData.username,
         contact: userData.email,

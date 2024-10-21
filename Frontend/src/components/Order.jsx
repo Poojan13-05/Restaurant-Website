@@ -9,8 +9,24 @@ import pizza from "../assets/Pizza.png";
 import pasta from "../assets/pasta.png";
 import spaghetti from "../assets/spaghetti.png";
 import wrap from "../assets/wrap.png";
-import smoothie from "../assets/smoothie.png";
-import hotcoffee from "../assets/hot coffee.png";
+import Chickensalad from "../assets/Chicken salad.png"
+import grilledchicken from "../assets/grilled chicken.png";
+import sandwich from "../assets/sandwich1.png"
+import avocado from "../assets/avocado.png"
+import salad from "../assets/salad.png"
+import soup from "../assets/soup.png"
+import tacos from "../assets/tacos.png"
+import buritto from "../assets/buritto.png"
+import bruschetta from "../assets/bruschetta.png"
+import garlicbread from "../assets/garlic bread.png"
+import friedrice from "../assets/fried rice.png"
+import thaicurry from "../assets/thai curry.png"
+import smoothie from "../assets/smoothie.png"
+import hotcoffee from "../assets/hot coffee.png"
+import milkshake from "../assets/milkshake.png"
+import mojito from "../assets/mojito.png"
+import juice from "../assets/juice.png"
+import coldcoffee from "../assets/cold coffee.png"
 import { useNavigate } from 'react-router-dom';
 
 const Order = () => {
@@ -34,7 +50,7 @@ const Order = () => {
             };
     
             try {
-                const response = await fetch('https://restaurant-website-liaz-poojan-prajapatis-projects.vercel.app/api/order/placeOrder', {
+                const response = await fetch('http://localhost:8800/api/order/placeOrder', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -60,20 +76,40 @@ const Order = () => {
 
     const menuItems = {
         breakfast: [
-            { id: 1, title: 'Pancakes', price: 199, description: 'Fluffy pancakes with syrup', image: pancakes },
-            { id: 2, title: 'Classic Omelette', price: 199, description: 'Cheese and ham omelette', image: omlet },
+            { id: 1, title: 'Pancakes', price: 199, description: 'Fluffy pancakes with maple syrup', image: pancakes },
+            { id: 2, title: 'Classic Omelette', price: 199, description: 'Cheese and ham omelette with tomatoes', image: omlet },
+            { id: 3, title: 'Sandwich', price: 249, description: 'Grilled sandwich with cheese', image: sandwich },
+            { id: 4, title: 'Avocado Toast', price: 299, description: 'Toasted bread with avocado spread', image: avocado },
+            { id: 5, title: 'Salad', price: 199, description: 'Crisp greens with fresh veggies', image: salad },
+            { id: 6, title: 'Soup', price: 149, description: 'Rich tomato soup with a hint of basil', image: soup }  
         ],
         lunch: [
-            { id: 3, title: 'Pizza', price: 299, description: 'Cheesy pizza with olive and vegetables', image: pizza },
-            { id: 4, title: 'Pasta', price: 249, description: 'Italian dish featuring tender pasta', image: pasta },
+            { id: 7, title: 'Pizza', price: 299, description: 'Cheesy pizza with olive and vegetables', image: pizza },
+            { id: 8, title: 'Pasta', price: 249, description: 'Italian dish featuring tender pasta', image: pasta },
+            { id: 9, title: 'Spaghetti Bolognese', price: 349, description: 'Classic spaghetti with rich meat sauce', image: spaghetti },
+            { id: 10, title: 'Grilled Chicken', price: 499, description: 'Juicy grilled chicken with herbs and spices', image: grilledchicken },
+            { id: 11, title: 'Chicken Salad', price: 299, description: 'Fresh salad with grilled chicken, veggies', image: Chickensalad },
+            { id: 12, title: 'Chicken Wraps', price: 399, description: 'Soft tortilla wraps with veggies', image: wrap },
+
         ],
         dinner: [
-            { id: 5, title: 'Spaghetti', price: 279, description: 'Tossed in creamy sauce', image: spaghetti },
-            { id: 6, title: 'Wrap', price: 199, description: 'Combination of veggies', image: wrap },
+            { id: 13, title: 'Tacos', price: 299, description: 'Crispy tacos filled with seasoned veggies', image: tacos },
+            { id: 14, title: 'Burrito', price: 349, description: 'Soft tortilla wrap stuffed with beans, meat, and rice', image: buritto },
+            { id: 15, title: 'Bruschetta', price: 199, description: 'Toasted bread topped with fresh tomatoes', image: bruschetta },
+            { id: 16, title: 'Thai Curry', price: 399, description: 'Spicy and flavorful Thai curry with cream', image: thaicurry },
+            { id: 17, title: 'Garlic Bread', price: 149, description: 'Crispy garlic bread with a buttery herb topping', image: garlicbread },
+            { id: 18, title: 'Fried Rice', price: 249, description: 'Stir-fried rice with veggies and choice of protein', image: friedrice },
+
+            
         ],
         drinks: [
-            { id: 7, title: 'Smoothie', price: 149, description: 'Strawberry smoothie', image: smoothie },
-            { id: 8, title: 'Hot Coffee', price: 99, description: 'Freshly brewed coffee', image: hotcoffee },
+            { id: 19, title: 'Smoothies', price: 299, description: 'Refreshing smoothies made with fresh fruits', image: smoothie },
+            { id: 20, title: 'Hot Coffee', price: 149, description: 'Rich and aromatic hot coffee', image: hotcoffee },
+            { id: 21, title: 'Milkshakes', price: 249, description: 'Creamy milkshakes available in various flavors', image: milkshake },
+            { id: 22, title: 'Mojitos', price: 299, description: 'Refreshing mojitos with mint and lime', image: mojito },
+            { id: 23, title: 'Fruit Juices', price: 199, description: 'Natural fruit juices packed with vitamins', image: juice },
+            { id: 24, title: 'Cold Coffee', price: 179, description: 'Chilled coffee blend for a cool, invigorating treat', image: coldcoffee },
+
         ],
     };
 

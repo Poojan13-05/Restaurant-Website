@@ -1,23 +1,19 @@
 {
-    "functions": {
-      "api/auth.js": {
-        "runtime": "nodejs14.x"
-      },
-      "api/menuitem.js": {
-        "runtime": "nodejs14.x"
-      },
-      "api/order.js": {
-        "runtime": "nodejs14.x"
-      },
-      "api/reservation.js": {
-        "runtime": "nodejs14.x"
-      }
-    },
+    "version": 2,
+    "builds": [
+        {
+            "src": "api/**/*.js",
+            "use": "@vercel/node"
+        }
+    ],
     "routes": [
-      { "src": "/api/auth/(.*)", "dest": "/api/auth.js" },
-      { "src": "/api/menuitem/(.*)", "dest": "/api/menuitem.js" },
-      { "src": "/api/order/(.*)", "dest": "/api/order.js" },
-      { "src": "/api/reservation/(.*)", "dest": "/api/reservation.js" }
+        {
+            "src": "/api/(.*)",
+            "dest": "/api/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/public/$1"
+        }
     ]
-  }
-  
+}
