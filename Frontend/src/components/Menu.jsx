@@ -17,12 +17,6 @@ import milkshake from "../assets/milkshake.png"
 import mojito from "../assets/mojito.png"
 import juice from "../assets/juice.png"
 import coldcoffee from "../assets/cold coffee.png"
-import tacos from "../assets/tacos.png"
-import buritto from "../assets/buritto.png"
-import bruschetta from "../assets/bruschetta.png"
-import garlicbread from "../assets/garlic bread.png"
-import friedrice from "../assets/fried rice.png"
-import thaicurry from "../assets/thai curry.png"
 
 import "./Menu.css"
 const Menu = () => {
@@ -44,15 +38,6 @@ const Menu = () => {
             { name: "Pasta", img: pasta },
             { name: "Spaghetti", img:spaghetti },
             { name: "Wraps", img: wrap }
-
-        ],
-        Dinner: [
-            { name: "Tacos", img: tacos },
-            { name: "Buritto", img: buritto },
-            { name: "Burschetta", img: bruschetta },
-            { name: "Thai Curry", img: thaicurry },
-            { name: "Garlic Bread", img: garlicbread },
-            { name: "Fried Rice", img: friedrice }
 
         ],
         Drinks: [
