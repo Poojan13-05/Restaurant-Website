@@ -1,16 +1,23 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const User = require('../models/Users');
 
-// Initialize MongoDB connection (this will run on each function call)
+const app = express();
+app.use(express.json());
+
+// Configure CORS
+app.use(cors({
+  origin: 'https://restaurant-website-xi-eight.vercel.app', // Allow your frontend domain
+  methods: ['GET', 'POST'], // Allow the methods you're using
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow necessary headers
+}));
+
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-const app = express();
-app.use(express.json());
 
 app.post('/register', async (req, res) => {
   try {

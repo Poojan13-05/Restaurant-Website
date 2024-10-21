@@ -1,8 +1,7 @@
 {
     "functions": {
       "api/auth.js": {
-        "memory": 1024,  
-        "maxDuration": 10 
+        "memory": 1024
       },
       "api/menuitem.js": {
         "memory": 1024
