@@ -21,7 +21,7 @@ const Home = () => {
             At Delicious, we believe that food is more than just sustenance it's
             a reason to celebrate. Join us in our cozy, vibrant setting and
             indulge in a culinary journey that will tantalize your taste buds
-            and warm your soul. Let's make every meal a memory."
+            and warm your soul. Let's make every meal a memory"
           </p>
           <button onClick={() => navigate("/about")}>About Us</button> {/* Redirect to About */}
         </div>
